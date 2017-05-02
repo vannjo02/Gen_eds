@@ -68,5 +68,5 @@ def search():
 	print("Reqs list", fulfills)
 
 	return render_template('search.html', search = search, lst = fulfills, query = query)
-							
-app.run(debug='True', host="0.0.0.0", port=8001)
+if __name__ == '__main__':
+	app.run(debug='True')
