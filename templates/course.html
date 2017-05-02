@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<form>
+<input type="button" value="Homepage" class="btn btn-primary btn-lg" onclick="window.location.href='/'"> 
+</form>
+</hr>
+<table class = "table table-striped">
+<tr><th>{{ crs }}</th></tr>
+<tr><td><b>Title:</b> {{ info[0] }}</td></tr>
+<tr><td><b>Description:</b> {{ info[1] }}</td></tr>
+</table>
+
+<table class = "table table-striped">
+<tr><th>Gen Ed Fulfillments</th></tr>
+	{% if course != []: %}
+  {% for course in course %}
+
+
+  <div>
+  <tr>
+      <td> {{ course[0] }} </td>
+  </tr>
+  </div>
+
+    {% endfor %}
+	{% else %}
+	<div><tr><td>This course does not fulfill any general education requirements</td></tr></div>
+	{% endif %}
+</table>
+
+{% endblock %}

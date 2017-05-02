@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<form>
+<input type="button" value="Homepage" class="btn btn-primary btn-lg" onclick="window.location.href='/'"> 
+</form>
+</hr>
+<h4>Results for search query: "{{ query }}"</h4>
+<table class = "table table-striped">
+<tr><th>Number</th><th>Title</th><th>Fulfills</th></tr>
+
+  {% for search in search %}
+  <div>
+  <tr>
+	<td><a href="/course/{{ search[0] }}">{{ search[0] }}</a></td>
+	<td>{{ search[1] }}</td>
+	{% if lst[loop.index0] != []: %}
+	<td>{{ ', '.join(lst[loop.index0]) }}</td>
+	{% else %}
+	<td>This course does not fulfill any requirements</td>
+	{% endif %}
+  </tr>
+  </div>
+  {% endfor %}
+
+</table>
+
+{% endblock %}

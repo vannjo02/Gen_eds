@@ -1,0 +1,59 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<div class="form-group">
+<form action="/requirement/">
+<label>Select gen eds:</label>
+{% for i in range(4) %}
+<select id="{{ i }}" name="option" class="form-control" width="300px">
+<option label="" disabled selected></option>
+{% for r in reqs %}
+    <option value="{{ r }}">{{ r }}</option>
+{% endfor %}
+</select>
+{% endfor %}
+
+<td>
+    <input class="button1" type="submit" value="Search">
+</td>
+<input type="reset" value="reset" />
+</form>
+</div>
+<hr>
+
+<div>
+<form action="/search/" id = "search"">
+<label for="search-input">Search</label>
+<input id="search-input" type = "search" name="input"/>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<hr>
+<h1>TOP 5 CLASSES</h1>
+<table class = "table table-striped">
+<tr><th>Number</th><th>Title</th><th>Number of fulfillments</th>
+  {% for res in res %}
+
+
+  <div>
+  <tr>
+      <td><a href="/course/{{ res[0] }}"> {{ res[0] }} </a></td><td>{{ res[1] }}</td><td>{{ res[2] }}</td>
+  </tr>
+  </div>
+
+    {% endfor %}
+</table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
