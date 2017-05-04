@@ -8,7 +8,7 @@ app = Flask(__name__)
 Bootstrap(app)
 
 
-#ssh -f vannjo02@knuth.luther.edu -L 2345:localhost:5432 -N
+
 
 conn = psycopg2.connect(os.environ['DATABASE_URL'])
 print('READY')
